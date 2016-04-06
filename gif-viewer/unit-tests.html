@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Writing Unit Tests · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="We&#39;ve got our first redux-elm Component implemented, let&#39;s write some unit tests. We&#39;ll not be testing our Views even though we could, but since all the bu">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../composition/" />
+    
+    
+    <link rel="prev" href="side-effects.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="2.4"
+    data-chapter-title="Writing Unit Tests"
+    data-filepath="gif-viewer/unit-tests.md"
+    data-basepath="../../docs"
+    data-revision="Wed Apr 06 2016 10:36:46 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../getting-started/necessary-boilerplate.html">
+            
+                <a href="../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting-started/hello-world.html">
+            
+                <a href="../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="shaping-model.html">
+            
+                <a href="shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="rendering-view.html">
+            
+                <a href="rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="side-effects.html">
+            
+                <a href="side-effects.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="unit-tests.html">
+            
+                <a href="unit-tests.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    Writing Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../composition/">
+            
+                <a href="../composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../composition/action-composition.html">
+            
+                <a href="../composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../composition/example/">
+            
+                <a href="../composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../composition/example/updater-composition.html">
+            
+                <a href="../composition/example/updater-composition.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Updater Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../composition/example/action-composition-practice.html">
+            
+                <a href="../composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../composition/example/matchers.html">
+            
+                <a href="../composition/example/matchers.html">
+            
+                    
+                        <b>3.2.3.</b>
+                    
+                    Introduction Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../composition/example/utilizing-matchers.html">
+            
+                <a href="../composition/example/utilizing-matchers.html">
+            
+                    
+                        <b>3.2.4.</b>
+                    
+                    Utilizing Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../composition/example/public-interface.html">
+            
+                <a href="../composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.5.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../composition/dynamic-list/">
+            
+                <a href="../composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../docs" >Writing Unit Tests</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="writing-unit-tests">Writing Unit Tests</h2>
+<p>We&apos;ve got our first <code>redux-elm</code> Component implemented, let&apos;s write some unit tests. We&apos;ll not be testing our Views even though we could, but since all the business logic lies in Updaters it&apos;s not essential. Before starting working on any production app, you should consider how much code coverage is needed but generally we could say having unit tests for Updaters is enough, especially given the fact that all the Side effects are kept in Updaters along with Model mutations.</p>
+<p>Before we got into writing some code a decent description of Component&apos;s behaviour should be clearly defined:</p>
+<ul>
+<li>It should display a loading indicator right after Component is initialized</li>
+<li>It should start loading a GIF right after Component is initialized where topic is funny cats</li>
+<li>It should not display loading indicator anymore when new GIF is fetched, instead newly fetched GIF should be displayed</li>
+<li>It should trigger loading of next GIF with selected topic and display loading indiciator right after user clicks Please More button</li>
+</ul>
+<p>It&apos;s easy to convert described behaviour into Unit tests. Start by creating an empty folder called <code>gif-viewer</code> inside <code>test</code> folder. We&apos;ll have just single file holding all the Unit tests for the Updater, therfore create a new empty file called <code>updater.js</code> within <code>test/gif-viewer</code> folder.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { assert } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
+
+describe(<span class="hljs-string">&apos;GifViewer Updater Behaviour Description&apos;</span>, () =&gt; {
+  it(<span class="hljs-string">&apos;should contain null gifUrl right after Component is initialized&apos;</span>, () =&gt; {
+    assert.isTrue(<span class="hljs-literal">false</span>);
+  });
+
+  it(<span class="hljs-string">&apos;should yield a side effect to trigger loading some funny cat GIF right after Component is initialized&apos;</span>, () =&gt; {
+    assert.isTrue(<span class="hljs-literal">false</span>);
+  });
+
+  it(<span class="hljs-string">&apos;should replace gifUrl with newly provided url when NewGif kicks in&apos;</span>, () =&gt; {
+    assert.isTrue(<span class="hljs-literal">false</span>);
+  });
+
+  it(<span class="hljs-string">&apos;should yield a side effect to trigger loading a GIF with topic specified in model and null gifUrl when RequestMore kicks in&apos;</span>, () =&gt; {
+    assert.isTrue(<span class="hljs-literal">false</span>);
+  });
+});
+</code></pre>
+<p>As you might have spotted, we&apos;ve translated some domain specific concepts into more concrete implementation concepts. Like for example we assume that <code>null</code> <code>gifUrl</code> means that we are showing a loading indicator in the UI. <strong>You can try running failing tests by executing <code>npm run test:watch</code></strong>.</p>
+<p>Writing Unit tests in <code>redux-elm</code> consists of two parts</p>
+<ol>
+<li>Assert that Model was correctly mutated when specific Action is handled</li>
+<li>Assert that Model yields expected Side Effects when specific Action is handled</li>
+</ol>
+<h3 id="deeper-generator-understanding">Deeper generator understanding</h3>
+<p>To understand how to write Unit tests we need to understand how Generators work, because our Updater is nothing else than Generator function.</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">updater</span>(<span class="hljs-params">model, action</span>) </span>{
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> model + <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>Calling a generator does not return value but it returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterators" target="_blank">Iterator</a>, think of an Object which has one method <code>next</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> iterator = updater(<span class="hljs-number">42</span>, {type: <span class="hljs-string">&apos;SomeAction&apos;</span>});
+</code></pre>
+<p>Calling next on Iterator changes its internal state while returning the next element where element has always same shape:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> nextElement = iterator.next();
+
+<span class="hljs-built_in">console</span>.log(nextElement); <span class="hljs-comment">// nextElement is object with two fields, done and value where done is false for all the calls except the last one</span>
+                          <span class="hljs-comment">// value contains either yielded or returned expression</span>
+                          <span class="hljs-comment">//</span>
+                          <span class="hljs-comment">// { done: false, value: 1 }</span>
+
+<span class="hljs-built_in">console</span>.log(iterator.next()); <span class="hljs-comment">// { done: false, value: 2 }</span>
+<span class="hljs-built_in">console</span>.log(iterator.next()); <span class="hljs-comment">// { done: true, value: 43 }</span>
+</code></pre>
+<p>Now it&apos;s pretty obvious that testing our updater is just a matter of calling <code>next()</code> on the returned generator and expecting some values.</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">updater</span>(<span class="hljs-params">input</span>) </span>{
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">return</span> input + <span class="hljs-number">42</span>;
+}
+
+<span class="hljs-keyword">const</span> iterator = updater(<span class="hljs-number">12</span>);
+
+assert.deepEqual(iterator.next(), {
+  done: <span class="hljs-literal">false</span>,
+  value: <span class="hljs-number">1</span>
+});
+
+assert.deepEqual(iterator.next(), {
+  done: <span class="hljs-literal">true</span>,
+  value: <span class="hljs-number">53</span>
+})
+</code></pre>
+<p>Let&apos;s have a look how we would write the first test which is testing correct State mutation:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { assert } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
+<span class="hljs-keyword">import</span> updater <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../src/gif-viewer/updater&apos;</span>;
+
+describe(<span class="hljs-string">&apos;GifViewer Updater Behaviour Description&apos;</span>, () =&gt; {
+  it(<span class="hljs-string">&apos;should contain null gifUrl right after Component is initialized&apos;</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> iterator = updater(<span class="hljs-literal">undefined</span>, { type: <span class="hljs-string">&apos;NonExistingAction&apos;</span> });
+
+    <span class="hljs-comment">// We ignore result of first `next()` call because we know</span>
+    <span class="hljs-comment">// that first value yielded in the updater is Side Effect</span>
+    iterator.next();
+
+    <span class="hljs-comment">// Second call of `iterator.next()` will return appropriate mutated Model</span>
+    assert.equal(iterator.next().value.gifUrl, <span class="hljs-literal">null</span>);
+  });
+});
+</code></pre>
+<p><code>Updater</code> function always takes two arguments first is Model and second is Action because we are testing initial Model we provide <code>undefined</code> as Model and some <code>NonExistingAction</code> as second argument, we don&apos;t mind that Updater will not handle the action, we just need to provide <strong>some</strong> action so that Model gets initialized.</p>
+<p>Now comes the nice part and it&apos;s testing of Side effects. <strong>Updater does not execute any Side effect it only yields an intention to execute them in next execution frame</strong> and the intetion is declarative <code>sideEffect</code> wrapper of the called function.</p>
+<pre><code class="lang-javascript">  it(<span class="hljs-string">&apos;should yield a side effect to trigger loading some funny cat GIF right after Component is initialized&apos;</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> iterator = updater(<span class="hljs-literal">undefined</span>, { type: <span class="hljs-string">&apos;NonExistingAction&apos;</span> });
+
+    <span class="hljs-comment">// We know that there&apos;s an intention to fetch GIF parametrized by &apos;funny cats&apos;</span>
+    assert.deepEqual(iterator.next(), {
+      done: <span class="hljs-literal">false</span>,
+      value: sideEffect(Effects.fetchGif, <span class="hljs-string">&apos;funny cats&apos;</span>)
+    });
+  });
+</code></pre>
+<p>With fundamental knowledge writing two more remaining tests is trivial:</p>
+<pre><code class="lang-javascript">  it(<span class="hljs-string">&apos;should replace gifUrl with newly provided url when NewGif kicks in&apos;</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;newlyfetchedUrl&apos;</span>;
+    <span class="hljs-keyword">const</span> initialModel = {
+      topic: <span class="hljs-string">&apos;funny cats&apos;</span>,
+      url: <span class="hljs-string">&apos;foobar&apos;</span>
+    };
+
+    <span class="hljs-keyword">const</span> iterator = updater(initialModel, {
+      type: <span class="hljs-string">&apos;NewGif&apos;</span>,
+      url
+    });
+
+    assert.deepEqual(iterator.next(), {
+      done: <span class="hljs-literal">true</span>,
+      value: {
+        ...initialModel,
+        gifUrl: url
+      }
+    });
+  });
+
+  it(<span class="hljs-string">&apos;should yield a side effect to trigger loading a GIF with topic specified in model and null gifUrl&apos;</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> initialModel = {
+      topic: <span class="hljs-string">&apos;special topic&apos;</span>,
+      url: <span class="hljs-string">&apos;foobar&apos;</span>
+    };
+
+    <span class="hljs-keyword">const</span> iterator = updater(initialModel, {
+      type: <span class="hljs-string">&apos;RequestMore&apos;</span>
+    });
+
+    <span class="hljs-comment">// Testing that Updater yields appropriate side effect</span>
+    assert.deepEqual(iterator.next(), {
+      done: <span class="hljs-literal">false</span>,
+      value: sideEffect(Effects.fetchGif, initialModel.topic)
+    });
+
+    <span class="hljs-comment">// Testing model mutation, gifUrl must be null</span>
+    assert.deepEqual(iterator.next(), {
+      done: <span class="hljs-literal">true</span>,
+      value: {
+        ...initialModel,
+        gifUrl: <span class="hljs-literal">null</span>
+      }
+    });
+  });
+</code></pre>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="side-effects.html" class="navigation navigation-prev " aria-label="Previous page: AJAX &amp; Side Effects in practice">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../composition/" class="navigation navigation-next " aria-label="Next page: Composition">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../gitbook/app.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Why the Elm Architecture matters? · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="You&#39;ve probably spotted all the buzz around Redux and React lately, there&#39;s no doubt these two pieces of technology have inevitably changed JavaScript Fron">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="getting-started/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="0"
+    data-chapter-title="Why the Elm Architecture matters?"
+    data-filepath="README.md"
+    data-basepath="."
+    data-revision="Wed Apr 06 2016 10:36:46 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter active" data-level="0" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="getting-started/">
+            
+                <a href="getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="getting-started/necessary-boilerplate.html">
+            
+                <a href="getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="getting-started/hello-world.html">
+            
+                <a href="getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="gif-viewer/">
+            
+                <a href="gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="gif-viewer/shaping-model.html">
+            
+                <a href="gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="gif-viewer/rendering-view.html">
+            
+                <a href="gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="gif-viewer/side-effects.html">
+            
+                <a href="gif-viewer/side-effects.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="gif-viewer/unit-tests.html">
+            
+                <a href="gif-viewer/unit-tests.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    Writing Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="composition/">
+            
+                <a href="composition/">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="composition/action-composition.html">
+            
+                <a href="composition/action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="composition/example/">
+            
+                <a href="composition/example/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="composition/example/updater-composition.html">
+            
+                <a href="composition/example/updater-composition.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Updater Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="composition/example/action-composition-practice.html">
+            
+                <a href="composition/example/action-composition-practice.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="composition/example/matchers.html">
+            
+                <a href="composition/example/matchers.html">
+            
+                    
+                        <b>3.2.3.</b>
+                    
+                    Introduction Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="composition/example/utilizing-matchers.html">
+            
+                <a href="composition/example/utilizing-matchers.html">
+            
+                    
+                        <b>3.2.4.</b>
+                    
+                    Utilizing Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="composition/example/public-interface.html">
+            
+                <a href="composition/example/public-interface.html">
+            
+                    
+                        <b>3.2.5.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="composition/dynamic-list/">
+            
+                <a href="composition/dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="composition/dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Why the Elm Architecture matters?</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="why-the-elm-architecture-matters">Why the Elm Architecture matters?</h2>
+<p>You&apos;ve probably spotted all the buzz around <a href="https://github.com/reactjs/redux" target="_blank">Redux</a> and <a href="http://facebook.github.io/react/" target="_blank">React</a> lately, there&apos;s no doubt these two pieces of technology have inevitably changed JavaScript Front-End world. Redux albeit it&apos;s a great framework is still very low level, which is great for newcomers because there&apos;s no need to understand complex abstractions so it&apos;s pretty easy to grasp all the basic concepts and get up to speed fairly quickly. On the other hand, it lacks those neccessary abstractions for real world, maintainable, scalable applications. It requires really experienced engineers which by trial &amp; error defines those abstractions.</p>
+<p>There&apos;s an opposite approach, which are full scoped frameworks like for example Angular / Ember and many others which contains a lot of abstractions. Obvious drawback of these frameworks is their complexity. It&apos;s very easy to understand Redux, because if something doesn&apos;t work, you can still look into Redux codebase and understand what happens under the hood (which will give you the big picture), this is very difficult with fully scoped frameworks.</p>
+<p>Ideally, we should find a balance, something that&apos;s still very easy to understand and does not involve reading thousands lines of code. That&apos;s why patterns are more important than over-engineered frameworks. <a href="https://github.com/evancz/elm-architecture-tutorial" target="_blank">The Elm Architecture</a> which is an application architecture for <a href="http://elm-lang.org/" target="_blank">Elm programming language</a> is good example. It&apos;s great set of patterns and ideas which helps solving hard problems:</p>
+<ul>
+<li><strong>Side Effects</strong> - API calls, Logging, anything that&apos;s not directly related to your domain logic</li>
+<li><strong><a href="http://staltz.com/unidirectional-user-interface-architectures.html" target="_blank">Fractability</a></strong> - Are your Components isolated? Can you at any time publish the deeply nested Component as independent npm package?</li>
+<li><strong><a href="http://blog.javascripting.com/2016/02/02/encapsulation-in-redux/" target="_blank">Encapsulation</a></strong> - People do not often talk about Encapsulation in Front-End world, but without it, it&apos;s nearly impossible to decouple Components and decoupling is secret sauce for any scalable architecture</li>
+<li><strong>Local Component State</strong> - Imagine you want to instantiate a Component, multiple instances of Calendar widget in the UI</li>
+</ul>
+<p>This repository aims to utilize the full power of The Elm Architecture in JavaScript. Some Elm folks would protest that it does not make sense to use The Elm Architecture in JavaScript because JavaScript does not have any guarantees unlike Elm. However, I do not share that view as Redux obviously suffers some issues which The Elm Architecture effectively solves and by The Elm Architecture I really mean the architecture not language itself. Goal of <code>redux-elm</code> is not to precisly follow the principles of The Elm Architecture, what it tries instead is taking advantage of the architecture where it makes sense and use JavaScript capabilities to squeeze everything out of the architecture where strict Elm cloning would be just awkward.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="getting-started/" class="navigation navigation-next navigation-unique" aria-label="Next page: Getting Started Tutorial">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="gitbook/app.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>

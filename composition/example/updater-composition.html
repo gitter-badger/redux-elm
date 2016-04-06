@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Updater Composition · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The reason why nothing really works now is that we haven&#39;t plumbed GifViewer Updater in yet. And we also need to initialize Child models properly therefore">
+        <meta name="generator" content="GitBook 3.0.0-pre.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="action-composition-practice.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book"
+    data-level="3.2.1"
+    data-chapter-title="Updater Composition"
+    data-filepath="composition/example/updater-composition.md"
+    data-basepath="../../../docs"
+    data-revision="Wed Apr 06 2016 10:36:46 GMT+0200 (CEST)"
+    data-innerlanguage="">
+    
+
+<div class="book-summary">
+    
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+
+            
+
+
+            
+            
+    
+        <li class="chapter " data-level="0" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Why the Elm Architecture matters?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="../../getting-started/">
+            
+                <a href="../../getting-started/">
+            
+                    
+                        <b>1.</b>
+                    
+                    Getting Started Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="../../getting-started/necessary-boilerplate.html">
+            
+                <a href="../../getting-started/necessary-boilerplate.html">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Necessary boilerplate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../getting-started/hello-world.html">
+            
+                <a href="../../getting-started/hello-world.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Hello World!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="../../gif-viewer/">
+            
+                <a href="../../gif-viewer/">
+            
+                    
+                        <b>2.</b>
+                    
+                    GifViewer tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="../../gif-viewer/shaping-model.html">
+            
+                <a href="../../gif-viewer/shaping-model.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    Shaping out initial Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../gif-viewer/rendering-view.html">
+            
+                <a href="../../gif-viewer/rendering-view.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Rendering View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../gif-viewer/side-effects.html">
+            
+                <a href="../../gif-viewer/side-effects.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    AJAX &amp; Side Effects in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../gif-viewer/unit-tests.html">
+            
+                <a href="../../gif-viewer/unit-tests.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    Writing Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>3.</b>
+                    
+                    Composition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="../action-composition.html">
+            
+                <a href="../action-composition.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Action Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Real Composition Example
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.2.1" data-path="updater-composition.html">
+            
+                <a href="updater-composition.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    Updater Composition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="action-composition-practice.html">
+            
+                <a href="action-composition-practice.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    Action Composition in practice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="matchers.html">
+            
+                <a href="matchers.html">
+            
+                    
+                        <b>3.2.3.</b>
+                    
+                    Introduction Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="utilizing-matchers.html">
+            
+                <a href="utilizing-matchers.html">
+            
+                    
+                        <b>3.2.4.</b>
+                    
+                    Utilizing Matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="public-interface.html">
+            
+                <a href="public-interface.html">
+            
+                    
+                        <b>3.2.5.</b>
+                    
+                    Using public interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../dynamic-list/">
+            
+                <a href="../dynamic-list/">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Dynamic List of Components
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../dynamic-list/updater-parameterized-matcher.html">
+            
+                <a href="../dynamic-list/updater-parameterized-matcher.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    Updater with ParmeterizedMatcher
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            <li class="divider"></li>
+            
+
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../docs" >Updater Composition</a>
+    </h1>
+</div>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            <section class="normal markdown-section">
+                            
+                            <h2 id="updater-composition">Updater Composition</h2>
+<p>The reason why nothing really works now is that we haven&apos;t plumbed <code>GifViewer</code> Updater in yet. And we also need to initialize Child models properly therefore we need to turn initial Model into function:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Updater } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-elm&apos;</span>;
+
+<span class="hljs-keyword">import</span> { init <span class="hljs-keyword">as</span> gifViewerInit } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../gif-viewer/updater&apos;</span>;
+
+<span class="hljs-keyword">const</span> funnyCatsGifViewerInit = gifViewerInit(<span class="hljs-string">&apos;funny cats&apos;</span>);
+<span class="hljs-keyword">const</span> funnyDogsGifViewerInit = gifViewerInit(<span class="hljs-string">&apos;funny dogs&apos;</span>);
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    top: <span class="hljs-keyword">yield</span>* funnyCatsGifViewerInit(),
+    bottom: <span class="hljs-keyword">yield</span>* funnyDogsGifViewerInit()
+  };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Updater(init).toReducer();
+</code></pre>
+<p>First things first, we know that <code>init</code> function exposed by <code>GifViewer</code> is thunk (function which returns a function) therefore we need to call it &quot;twice&quot; to actually call it, first call takes one argument which is a topic for the <code>GifViewer</code> and returns initialize function which can be later used for initializing the Model, we&apos;ll use Cats for top <code>GifViewer</code> and Dogs for bottom. So hypothetically the app should now correctly show Topic above the <code>GifViewer</code> and also trigger initial API call.</p>
+<p>Also you might have spotted <code>yield*</code> keyword, this is essential because Generators does not automatically propagate upper the call hierarchy and you need to explicitly say that you want to propagate <code>yield</code>s. Therefore anytime you call a generator function in your Updater, don&apos;t forget to prepend <code>yield*</code> keyword.</p>
+<p><strong>Keep in mind, use <code>yield*</code> whenever you want to call Sub Updater and use <code>yield</code> whenever you want to <code>yield</code> a side effect</strong></p>
+<p><img src="../../assets/8.png" alt="gif-viewer-pair-2"></p>
+<p>It&apos;s apparent from the screenshot that we can now see <code>GifViewer</code> topics and two API calls have been called.</p>
+<h3 id="redux-devtools-extension">Redux DevTools extension</h3>
+<p>Are you wondering what&apos;s the nice browser extension on the right side in the screenshot above? It&apos;s <a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank"><code>redux-devtools-extension</code></a> which allows you very nicely debug your Redux applications, it comes really handy and you should check it out. <code>redux-elm-skeleton</code> already integrates it, so you just need to install the <a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd" target="_blank">extension</a> in your browser and restart it, you should see Redux tab in your Chrome Dev Tools.</p>
+
+                            
+                            </section>
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Real Composition Example">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="action-composition-practice.html" class="navigation navigation-next " aria-label="Next page: Action Composition in practice">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+</div>
+
+        
+    <script src="../../gitbook/app.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+    <script>
+    require(["gitbook"], function(gitbook) {
+        gitbook.start({"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}}});
+    });
+    </script>
+
+    </body>
+</html>
